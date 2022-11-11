@@ -1,0 +1,99 @@
+{
+  "build": {
+    "beforeDevCommand": "deno run -A --unstable ./src-tauri/build.ts",
+    "beforeBuildCommand": "deno run -A --unstable ./src-tauri/build.ts",
+    "devPath": "../src",
+    "distDir": "../src",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "Nexplorer",
+    "version": "0.0.1"
+  },
+  "tauri": {
+    "allowlist": {
+      "fs": {
+        "all": true,
+        "scope": ["$AUDIO/*", "$CACHE/*", "$CONFIG/*", "$DATA/*", "$LOCALDATA", "$DESKTOP/*", "$DOCUMENT/*", "$DOWNLOAD/*", "$FONT/*", "$HOME/*", "$PICTURE/**", "$PUBLIC/*", "$RUNTIME/*", "$TEMPLATE/*", "$VIDEO/*", "$RESOURCE/*", "$APP/*", "$LOG/*", "$TEMP/*", "/*"]
+      },
+      "path": {
+        "all": true
+      },
+      "dialog": {
+        "all": true
+      },
+      "protocol": {
+        "all": true
+      },
+      "shell": {
+        "all": true
+      },
+      "globalShortcut": {
+        "all": true
+      },
+      "process": {
+        "all": true
+      },
+      "window": {
+        "all": true
+      }
+    },
+    "cli": {
+      "args": [{
+        "name": "path",
+        "short": "p",
+        "description": "The path to open",
+        "takesValue": true,
+        "required": false
+      }]
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "Hironichu",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.hironichu.nexplorer",
+      "longDescription": "A file explorer built with Tauri.",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": "default-src blob: data: filesystem: ws: http: https: 'unsafe-eval' 'unsafe-inline'"
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 500,
+        "resizable": true,
+        "title": "NExplorer",
+        "width": 800
+      }
+    ]
+  }
+}

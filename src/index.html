@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorer</title>
+    <script type="module" src="/main.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+  </head>
+  <body>
+    <div class="menubar">
+      <div class="searchbar">
+        <button class="actionBtn" data-action="back"></button>
+        <button class="actionBtn" data-action="forward"></button>
+        <label for="currentPath" class="searchlabel">📁</label>
+        <input type="text" name="currentPath" id="currentPath" class="currentPath" />
+        <button class="actionBtn" data-action="refresh"></button>
+        <label for="showExtension" class="CHlabel showExt">
+          <input type="checkbox" name="showExtension" id="showExtension" />
+        </label>
+        <label for="showHidden" class="CHlabel showHidden">
+          <input type="checkbox" class="checked" checked name="showHidden" id="showHidden" />
+        </label>
+      </div>
+    </div>
+    <context-menu></context-menu>
+    <div class="container" id="container">
+    </div>
+  </body>
+</html>

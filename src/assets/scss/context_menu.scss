@@ -1,0 +1,36 @@
+@use "sass:list";
+@use "sass:map";
+$context_actions: (
+    "file": (
+        "rename": "Rename",
+        "delete": "Delete",
+        "properties": "Properties"
+    ),
+    "folder": (
+        "rename": "Rename",
+        "delete": "Delete",
+        "properties": "Properties"
+    ),
+    "default": (
+        "open": "Open",
+        "new_file": "New File",
+        "new_folder": "New Folder",
+        "paste": "Paste",
+        "cut": "Cut",
+        "copy": "Copy",
+    )
+);
+
+@mixin context_actions() {
+    @each $name, $action in $context_actions {
+        &[data-mode="#{$name}"] {
+            @each $action_name, $action_label in $action {
+                &[data-action="#{$action_name}"] {
+                    &::before {
+                        content: "#{$action_label}";
+                    }
+                }
+            }
+        }
+    }
+}

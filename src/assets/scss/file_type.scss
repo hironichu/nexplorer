@@ -1,0 +1,64 @@
+///Create a variable that contains all the file types and their respective Icons using emojis with Sass
+@use "sass:list";
+@use "sass:map";
+$icons: (
+  "file": "📄",
+  "folder": "📁",
+  "png": "🖼️",
+  "jpg": "🖼️",
+  "c": "👨‍💻",
+  "jpeg": "🖼️",
+  "mp4": "🎥",
+  "mov": "🎥",
+  "mkv": "🎥",
+  "mp3": "🎵",
+  "wave": "🎵",
+  "pdf": "📄",
+  "zip": "🗜️",
+  "rar": "🗜️",
+  "js": "👨‍💻",
+  "ts": "👨‍💻",
+  "rs": "👨‍💻",
+  "html": "👨‍💻",
+  "css": "👨‍💻",
+  "txt": "📄",
+  "md": "📄",
+  "other": "📄"
+);
+
+
+@function icons-for-type($type) {
+  $icons: ();
+  @each $icon in $icons {
+    @if map.get($icons, $icon) == $type {
+      $icons: list.append($icons, $icon);
+    }
+  }
+  @return $icons;
+}
+
+
+@mixin file_type() {
+    @each $name, $glyph in $icons {
+        &[data-itemtype="#{$name}"] {
+            &::before {
+                content: "#{$glyph}";
+                height: 50px;
+                font-size: 4.1em;
+                width: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 5px;
+                display: flex;
+                position: relative;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+        &:hover {
+          &::before {
+            transform: scale(1.15);
+          }
+        }
+    }
+}
